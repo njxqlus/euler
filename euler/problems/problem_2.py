@@ -23,3 +23,19 @@ def solve(x: int) -> int:
             r += a
         a, b = b, a + b
     return r
+
+
+def solve_2(x: int) -> int:
+    """
+    We know that every third fibonacci number is even
+    This solution is more faster
+    """
+    a = 1
+    b = 2
+    r = 0
+    i = 2
+    while r <= x:
+        a, b, i = b, a + b, i + 1
+        if i == 3:
+            r, i = r + a, 0
+    return r
