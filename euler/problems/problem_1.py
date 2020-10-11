@@ -9,7 +9,7 @@
 # Найдите сумму всех чисел меньше 1000, кратных 3 или 5.
 
 
-def problem_1(x: int) -> int:
+def solve(x: int) -> int:
     i = r = 0
 
     while i < x:
