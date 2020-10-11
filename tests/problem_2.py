@@ -1,15 +1,18 @@
 import unittest
 import time
-from euler.problems.problem_2 import problem_2
+from euler.problems.problem_2 import solve
 
 
 class Problem2TestCase(unittest.TestCase):
+    condition = 4000000
+    answer = 4613732
+
     def test_default_condition(self):
-        self.assertEqual(problem_2(4000000), 4613732)
+        self.assertEqual(solve(self.condition), self.answer)
 
     def test_time(self):
         start_time = time.time()
-        problem_2(1000)
+        solve(self.condition)
         self.assertLess(time.time() - start_time, 60)
 
 

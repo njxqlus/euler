@@ -14,14 +14,12 @@
 # Найдите сумму всех четных элементов ряда Фибоначчи, которые не превышают четыре миллиона.
 
 
-def problem_2(x: int) -> int:
+def solve(x: int) -> int:
     a = 1
     b = 2
-    r = b
-    while a + b <= x:
-        c = a + b
-        a, b = b, c
-        if not c & 1:
-            r += c
-
+    r = 0
+    while r <= x:
+        if not a & 1:
+            r += a
+        a, b = b, a + b
     return r
