@@ -18,10 +18,9 @@ def problem_2(x: int) -> int:
     a = 1
     b = 2
     r = b
-    while a + b < x:
+    while a + b <= x:
         c = a + b
-        a = b
-        b = c
+        a, b = b, c
         if not c & 1:
             r += c
 
