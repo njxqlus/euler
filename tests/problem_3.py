@@ -1,6 +1,7 @@
 import unittest
-import time
+
 from euler.problems.problem_3 import is_prime, solve, solve_2
+from .helpers import solution_time, is_faster_solution
 
 
 class SolutionTestCase(unittest.TestCase):
@@ -32,9 +33,7 @@ class SolutionTestCase(unittest.TestCase):
         self.assertEqual(self.answer, solve(self.condition))
 
     def test_solution_time(self):
-        start_time = time.time()
-        solve(self.condition)
-        self.assertLess(time.time() - start_time, 60)
+        solution_time(self, solve, self.condition)
 
 
 class Solution2TestCase(unittest.TestCase):
@@ -45,15 +44,7 @@ class Solution2TestCase(unittest.TestCase):
         self.assertEqual(self.answer, solve_2(self.condition))
 
     def test_is_faster_solution(self):
-        start_time = time.time()
-        solve(self.condition)
-        solution_1_total_time = time.time() - start_time
-
-        start_time = time.time()
-        solve_2(self.condition)
-        solution_2_total_time = time.time() - start_time
-
-        self.assertLess(solution_2_total_time, solution_1_total_time)
+        is_faster_solution(self, solve, solve_2, self.condition)
 
 
 if __name__ == '__main__':

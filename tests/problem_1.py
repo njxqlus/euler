@@ -1,6 +1,7 @@
 import unittest
-import time
+
 from euler.problems.problem_1 import solve
+from .helpers import solution_time
 
 
 class SolutionTestCase(unittest.TestCase):
@@ -11,12 +12,10 @@ class SolutionTestCase(unittest.TestCase):
         self.assertEqual(solve(10), 23)
 
     def test_solution(self):
-        self.assertEqual(solve(self.condition), self.answer)
+        self.assertEqual(self.answer, solve(self.condition))
 
     def test_solution_time(self):
-        start_time = time.time()
-        solve(self.condition)
-        self.assertLess(time.time() - start_time, 60)
+        solution_time(self, solve, self.condition)
 
 
 if __name__ == '__main__':
