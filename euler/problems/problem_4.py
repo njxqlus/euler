@@ -10,17 +10,17 @@
 # Найдите самый большой палиндром, полученный умножением двух трехзначных чисел.
 
 
-def solve(digit):
+def solve(digit: int) -> int:
     for i in range(max_number_of_n_digits(digit) ** 2, min_number_with_n_digits(digit) ** 2, -1):
         if is_palindromic(i) and is_number_has_n_digits_factors(i, digit):
             return i
 
 
-def min_number_with_n_digits(digit):
+def min_number_with_n_digits(digit: int) -> int:
     return int('1' + '0' * (digit - 1))
 
 
-def max_number_of_n_digits(digit):
+def max_number_of_n_digits(digit: int) -> int:
     return int('9' * digit)
 
 
