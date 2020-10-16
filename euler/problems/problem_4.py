@@ -12,7 +12,7 @@
 
 def solve(digit: int) -> int:
     for i in range(max_number_of_n_digits(digit) ** 2, min_number_with_n_digits(digit) ** 2, -1):
-        if is_palindromic(i) and is_number_has_n_digits_factors(i, digit):
+        if is_palindrome_number(i) and is_number_has_n_digits_factors(i, digit):
             return i
 
 
@@ -24,10 +24,8 @@ def max_number_of_n_digits(digit: int) -> int:
     return int('9' * digit)
 
 
-def is_palindromic(x: int) -> bool:
-    x = str(x)
-    y = len(x) // 2
-    return x[0:y] == x[-1:-y - 1:-1]
+def is_palindrome_number(x: int) -> bool:
+    return str(x) == str(x)[::-1]
 
 
 def is_number_has_n_digits_factors(x: int, digits: int):
